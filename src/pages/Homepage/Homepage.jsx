@@ -1,11 +1,14 @@
 import React from 'react';
+import PageLayout from "../../components/PageLayout/PageLayout";
 
 export default function Homepage() {
 
 
     return(
       <>
-      <h1>This is homepage</h1>
+          <PageLayout>
+            <h1>This is homepage</h1>
+          </PageLayout>
       </>
     );
 

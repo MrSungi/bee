@@ -6,7 +6,6 @@ import Items from "../pages/Items";
 const App = () => {
   return (
       <>
-        <h1> Bee App</h1>
           <Router>
               <Switch>
                   <Route exact path="/" component={Homepage}/>
