@@ -5,9 +5,9 @@
 }
 
 .navigation:hover {
-    color: red;
+    color: #b8b100;
 }
 
 .navigation.active {
-    color: red;
+    color: #b6b806;
 }

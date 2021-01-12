@@ -5,6 +5,7 @@ import Items from "../pages/Items";
 import Contacts from "../pages/Contacts";
 import AboutUs from "../pages/AboutUs";
 import Apiary from "../pages/Apiary";
+import Login from "../pages/Login";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
                   <Route exact path="/items" component={Items}/>
                   <Route exact path="/contacts" component={Contacts}/>
                   <Route exact path="/about" component={AboutUs}/>
+                  <Route exact path="/login" component={Login}/>
               </Switch>
 
           </Router>
