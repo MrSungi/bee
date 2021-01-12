@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../Header/Header';
 
-export default ({ children }) => {
+const PageLayout = ({ children }) => {
     return (
         <>
             <Header />
@@ -9,3 +9,5 @@ export default ({ children }) => {
         </>
     );
 };
+
+export default PageLayout;
