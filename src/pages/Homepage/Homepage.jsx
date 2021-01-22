@@ -1,15 +1,45 @@
 import React from 'react';
-import PageLayout from "../../components/PageLayout/PageLayout";
+import {makeStyles} from "@material-ui/core/styles";
+import {CssBaseline} from "@material-ui/core";
+import {Link} from 'react-router-dom';
+import Background from '../../assets/HoneycombHD.jpg';
+import ImageCard from "../../components/ImageCard/ImageCard";
+import cards from '../../static/cards';
 
-export default function Homepage() {
+const useStyles = makeStyles(() => ({
+    root: {
+        minHeight: '100vh',
+        backgroundImage: `url(${Background})`,
+        backgtoundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    navigation:{
+        textDecoration: 'none',
+    },
+
+}));
 
 
-    return(
-      <>
-          <PageLayout>
-            <h1>This is homepage</h1>
-          </PageLayout>
-      </>
+const Homepage = ({}) => {
+    const classes = useStyles();
+
+    return (
+        <div className={classes.root}>
+            <CssBaseline />
+                <Link className={classes.navigation} to={'/apiary'}>
+                    <ImageCard card={cards[0]}/>
+                </Link>
+                <Link className={classes.navigation} to={'/items'}>
+                    <ImageCard card={cards[1]}/>
+                </Link>
+                <Link className={classes.navigation} to={'/about'}>
+                    <ImageCard card={cards[2]}/>
+                </Link>
+        </div>
     );
+};
 
-}
+export default Homepage;

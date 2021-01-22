@@ -1,23 +1,29 @@
 import React from 'react';
 import { AppBar, Toolbar } from '@material-ui/core';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import {makeStyles} from "@material-ui/core";
 import NavBar from "../NavBar/NavBar";
-import './Header.css'
-import {NavLink} from "react-router-dom";
+import Logo from '../../assets/Logo.png';
 
-
+const useStyles = makeStyles({
+    logo: {
+        maxWidth: 160,
+    },
+    toolbar:{
+        justifyContent: 'space-between',
+    },
+});
 
 const Header = () => {
+    const classes = useStyles();
+
     return(
         <>
-            <AppBar color='transparent' position="static">
-                <Toolbar className="separate-exit" >
+            <AppBar color='transparent' position="static" >
+                <Toolbar className={classes.toolbar}>
+                    <img src={Logo} alt='logo' className={classes.logo}/>
                     <div>
                         <NavBar/>
                     </div>
-                    <NavLink className="navigation" activeClassName="active" to="/login">
-                        <AccountCircleIcon />
-                    </NavLink>
                 </Toolbar>
             </AppBar>
         </>
