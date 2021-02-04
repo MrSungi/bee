@@ -1,33 +1,26 @@
 import React from 'react'
-import { Icon } from '@iconify/react'
-import sendCircle from '@iconify/icons-mdi/send-circle'
-
+import IconButton from '@material-ui/core/IconButton';
+import SendIcon from '@material-ui/icons/Send';
+import emailjs from 'emailjs-com';
+import formInputs from '../../../static/formInputs'
 import './Form.css'
 
-const formInputs = [
-    { id: 'name', type: 'text', label: 'Jūsų vardas', placeholder: 'Petras Petraitis' },
-    {
-        id: 'tel',
-        type: 'tel',
-        label: 'Telefono numeris',
-        placeholder: '+370612345',
-    },
-    {
-        id: 'email',
-        type: 'email',
-        label: 'Elektroninis paštas',
-        placeholder: 'you@example.com',
-    },
-    {
-        id: 'message',
-        type: 'textarea',
-        label: 'Jūsų žinutė',
-        placeholder: 'Kuo mes jums galime padėti?',
-    },
-];
+
+function sendEmail(e) {
+    e.preventDefault();
+
+    emailjs.sendForm('BeeMail', 'BeeTemplate', e.target, 'user_GGpJfCk7AaNp4sNG9AAPi')
+        .then((result) => {
+            console.log(result.text);
+        }, (error) => {
+            console.log(error.text);
+        });
+    e.target.reset();
+}
+
 
 const Form = () => (
-    <form className="form">
+    <form className="form" onSubmit={sendEmail}>
         <h2 className="form-h2">Parašykite mums</h2>
 
         {formInputs.map(input => (
@@ -41,16 +34,17 @@ const Form = () => (
                         className="form-input"
                         type={input.type}
                         placeholder={input.placeholder}
+                        name ={input.name}
                     />
                 )}
             </label>
         ))}
 
-        <Icon className="form-submit" icon={sendCircle} />
+        <IconButton type="submit" className="form-submit">
+        <SendIcon style={{fontSize: 80}}/>
+        </IconButton>
 
-        {/* <button className="form-submit" type="submit">
-      Send message
-    </button> */}
+
     </form>
 );
 
