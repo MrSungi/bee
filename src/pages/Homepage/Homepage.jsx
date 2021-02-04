@@ -23,7 +23,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 
-const Homepage = ({}) => {
+const Homepage = () => {
     const classes = useStyles();
 
     return (
@@ -35,7 +35,7 @@ const Homepage = ({}) => {
                 <Link className={classes.navigation} to={'/items'}>
                     <ImageCard card={cards[1]}/>
                 </Link>
-                <Link className={classes.navigation} to={'/about'}>
+                <Link className={classes.navigation} to={'/contacts'}>
                     <ImageCard card={cards[2]}/>
                 </Link>
         </div>

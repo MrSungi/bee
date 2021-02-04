@@ -19,7 +19,7 @@ const cards = [
         time:1500,
     },
     {
-        title: 'Apie mus',
+        title: 'Kontaktai',
         description:
             "Kaip su mumis susisiekti ir kaip mus rasti.",
         image: About,

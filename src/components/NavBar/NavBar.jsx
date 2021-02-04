@@ -13,8 +13,8 @@ const NavBar = () => {
             <NavLink className="navigation" activeClassName="active" to="/items">
                 Produktai
             </NavLink>
-            <NavLink className="navigation" activeClassName="active" to="/about">
-                Apie mus
+            <NavLink className="navigation" activeClassName="active" to="/contacts">
+                Kontaktai
             </NavLink>
             <NavLink className="navigation" activeClassName="active" to="/login">
                 <AccountCircleIcon />

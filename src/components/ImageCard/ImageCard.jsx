@@ -20,12 +20,12 @@ const useStyles = makeStyles({
       fontFamily: 'Nunito',
         fontWeight: 'bold',
         fontSize:'2rem',
-        color: '#fff'
+        color: 'black'
     },
     description:{
         fontFamily: 'Nunito',
         fontSize:'1.1rem',
-        color:'#ddd'
+        color:'black'
     },
     cardHovered: {
         transform: "scale3d(1.05, 1.05, 1)"
