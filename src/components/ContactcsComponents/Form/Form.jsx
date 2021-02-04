@@ -44,7 +44,7 @@ return(
                 const newEmail = {email: e.target.value};
                 setState(newEmail);
             }}
-            name={state.email}
+            name='email'
             value={state.email}
             placeholder='tavo@elpastas.lt'
             validators={['required', 'isEmail']}
