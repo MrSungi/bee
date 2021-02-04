@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import IconButton from '@material-ui/core/IconButton';
 import SendIcon from '@material-ui/icons/Send';
 import emailjs from 'emailjs-com';
@@ -6,21 +6,26 @@ import formInputs from '../../../static/formInputs'
 import './Form.css'
 
 
-function sendEmail(e) {
-    e.preventDefault();
-
-    emailjs.sendForm('BeeMail', 'BeeTemplate', e.target, 'user_GGpJfCk7AaNp4sNG9AAPi')
-        .then((result) => {
-            console.log(result.text);
-        }, (error) => {
-            console.log(error.text);
-        });
-    e.target.reset();
-}
+function Form() {
+    const [sent, setSent] = useState(false);
 
 
-const Form = () => (
-    <form className="form" onSubmit={sendEmail}>
+    function sendEmail(e) {
+        e.preventDefault();
+
+        emailjs.sendForm('BeeMail', 'BeeTemplate', e.target, 'user_GGpJfCk7AaNp4sNG9AAPi')
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            });
+        setSent(true);
+        e.target.reset();
+    }
+
+
+return(
+    <form className="form" onSubmit={sendEmail} >
         <h2 className="form-h2">Parašykite mums</h2>
 
         {formInputs.map(input => (
@@ -41,11 +46,16 @@ const Form = () => (
         ))}
 
         <IconButton type="submit" className="form-submit">
-        <SendIcon style={{fontSize: 80}}/>
+            <SendIcon style={{fontSize: 80}}/>
         </IconButton>
+
+    {sent === true ? (
+        <p className="messageSent"> Žinutė išsiūsta! </p>
+    ) : (<></>)}
+
 
 
     </form>
-);
+);}
 
 export default Form

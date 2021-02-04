@@ -42,6 +42,11 @@
     font-size: 5rem;
 }
 
+.messageSent{
+    display: block;
+    font-family: 'Nunito Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
+}
 
 @media screen and (min-width: 799px) {
 
@@ -90,4 +95,11 @@
     .form-submit {
         grid-area: submit;
     }
+
+    .messageSent{
+        font-family: 'Nunito Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-weight: 400;
+        grid-area: submit;
+    }
+
 }
