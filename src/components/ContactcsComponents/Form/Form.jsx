@@ -33,7 +33,7 @@ return(
                 {input.label}
 
                 {input.type === 'textarea' ? (
-                    <textarea className="form-textarea" placeholder={input.placeholder} />
+                    <textarea className="form-textarea" placeholder={input.placeholder} name={input.name}/>
                 ) : (
                     <input
                         className="form-input"

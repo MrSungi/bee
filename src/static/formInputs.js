@@ -16,7 +16,7 @@ const formInputs = [
         id: 'email',
         type: 'email',
         label: 'Elektroninis paštas',
-        placeholder: 'you@example.com',
+        placeholder: 'tavo@elpastas.lt',
         name: 'email',
     },
     {
