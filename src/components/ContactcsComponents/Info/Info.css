@@ -10,7 +10,7 @@
 }
 
 .info-details-container {
-    margin: 40px 0;
+    margin: 20px 0;
 }
 
 .info-detail {
@@ -32,7 +32,6 @@
     .info {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         padding: 40px;
     }
 
