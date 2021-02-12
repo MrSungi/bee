@@ -8,10 +8,10 @@ import './Form.css'
 
 function Form() {
     const [sent, setSent] = useState(false);
-
-    const [state, setState] = useState({
-                                email: ''
-    });
+    const [email, setEmail] = useState('');
+    const [name, setName] = useState('');
+    const [number, setNumber] = useState('');
+    const [message, setMessage] = useState('');
 
 
     function sendEmail(e) {
@@ -35,20 +35,74 @@ return(
         onSubmit={sendEmail}
         onError={errors => console.log(errors)}
     >
+
+        <TextValidator
+            className="form-input"
+            id='name'
+            type='text'
+            label='Jūsų vardas'
+            onChange={e => {
+                const newName = e.target.value;
+                setName(newName);
+            }}
+            name='name'
+            value={name}
+            InputLabelProps={{ shrink: true }}
+            placeholder='Petras Petraitis'
+            validators={['required', 'minStringLength:4']}
+            errorMessages={['Šis laukas privalomas', 'Mažai simbolių']}
+        />
+
+        <TextValidator
+            className="form-input"
+            id='tel'
+            type='tel'
+            label='Telefono numeris'
+            onChange={e => {
+                const newNumber = e.target.value;
+                setNumber(newNumber);
+            }}
+            name='number'
+            value={number}
+            InputLabelProps={{ shrink: true }}
+            placeholder='+370612345'
+            validators={['matchRegexp:(\\+(3706)\\d{5})', 'minStringLength:12', 'maxStringLength:12']}
+            errorMessages={['Neteisingas numerio formatas (+3706*******)', '', 'Neteisingas numerio formatas (+3706*******)']}
+        />
+
         <TextValidator
             className="form-input"
             id='email'
             type='email'
             label='Elektroninis paštas'
             onChange={e => {
-                const newEmail = {email: e.target.value};
-                setState(newEmail);
+                const newEmail = e.target.value;
+                setEmail(newEmail);
             }}
             name='email'
-            value={state.email}
+            value={email}
+            InputLabelProps={{ shrink: true }}
             placeholder='tavo@elpastas.lt'
             validators={['required', 'isEmail']}
             errorMessages={['Šis laukas privalomas', 'Neteisingas el. paštas']}
+        />
+
+        <TextValidator
+            className="form-textarea"
+            id='message'
+            type='textarea'
+            label='Jūsų žinutė'
+            onChange={e => {
+                const nemMessage = e.target.value;
+                setMessage(nemMessage);
+            }}
+            name='message'
+            multiline
+            value={message}
+            InputLabelProps={{ shrink: true }}
+            placeholder='Kuo mes jums galime padėti?'
+            validators={['required', 'minStringLength:5', 'maxStringLength:100']}
+            errorMessages={['Šis laukas privalomas', 'Per mažai simbolių', 'Per daug simbolių']}
         />
 
         <IconButton type="submit" className="form-submit">
@@ -63,33 +117,6 @@ return(
 
     );}
 
-//     <form className="form" onSubmit={sendEmail} >
-//         <h2 className="form-h2">Parašykite mums</h2>
-//
-//         {formInputs.map(input => (
-//             <label key={input.label} id={input.id} className="form-label">
-//                 {input.label}
-//
-//                 {input.type === 'textarea' ? (
-//                     <textarea className="form-textarea" placeholder={input.placeholder} name={input.name}/>
-//                 ) : (
-//                     <input
-//                         className="form-input"
-//                         type={input.type}
-//                         placeholder={input.placeholder}
-//                         name ={input.name}
-//                     />
-//                 )}
-//             </label>
-//         ))}
-//
-//
-//
 
-//
-//
-//
-//     </form>
-// );}
 
 export default Form
