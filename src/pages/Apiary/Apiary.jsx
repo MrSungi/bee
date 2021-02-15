@@ -1,12 +1,13 @@
 import React from 'react';
 import PageLayout from "../../components/PageLayout/PageLayout";
+import Cover from "../../components/Cover/Cover";
 
 export default function Apiary() {
 
 
     return(
             <PageLayout>
-                <h1>This is Apiary page</h1>
+                <Cover/>
             </PageLayout>
     );
 
