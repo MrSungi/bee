@@ -1,7 +1,7 @@
 import React from 'react';
 import {makeStyles} from "@material-ui/core/styles";
 import {CssBaseline} from "@material-ui/core";
-import Background from '../../assets/HoneycombHD.jpg';
+import Background from '../../../public/assets/HoneycombHD.jpg';
 import Header from '../Header/Header';
 
 const useStyles = makeStyles(() => ({

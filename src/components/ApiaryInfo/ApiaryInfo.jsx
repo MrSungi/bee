@@ -3,9 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
-import papile from '../../assets/papile.png';
-import papileview from '../../assets/papileview.JPG';
-import apiaryinfo from '../../assets/apiaryinfo.jpg';
+import papile from '../../../public/assets/papile.png';
+import papileview from '../../../public/assets/papileview.JPG';
+import apiaryinfo from '../../../public/assets/apiaryinfo.jpg';
 
 
 

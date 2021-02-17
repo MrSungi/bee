@@ -1,6 +1,6 @@
-import Apiary from '../assets/apiary.jpg';
-import Products from '../assets/products.jpg';
-import About from '../assets/aboutbee.png';
+import Apiary from '../../public/assets/apiary.jpg';
+import Products from '../../public/assets/products.jpg';
+import About from '../../public/assets/aboutbee.png';
 
 
 const cards = [
