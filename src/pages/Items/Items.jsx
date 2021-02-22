@@ -1,12 +1,14 @@
 import React from 'react';
 import PageLayout from "../../components/PageLayout/PageLayout";
+import Product from '../../components/Product/Product';
+import data from '../../static/data';
 
 export default function Items() {
 
 
     return(
             <PageLayout>
-                <h1>This is Items Page</h1>
+                <Product product={data.products[1]}/>
             </PageLayout>
     );
 
