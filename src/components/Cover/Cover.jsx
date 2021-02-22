@@ -1,7 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
-import cover from '../../../public/assets/cover.jpg'
+import cover from '../../assets/cover.jpg'
 
 
 const useStyles = makeStyles({

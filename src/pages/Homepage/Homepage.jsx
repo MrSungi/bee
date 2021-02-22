@@ -2,7 +2,7 @@ import React from 'react';
 import {makeStyles} from "@material-ui/core/styles";
 import {CssBaseline} from "@material-ui/core";
 import {Link} from 'react-router-dom';
-import Background from '../../../public/assets/HoneycombHD.jpg';
+import Background from '../../assets/HoneycombHD.jpg';
 import ImageCard from "../../components/ImageCard/ImageCard";
 import cards from '../../static/cards';
 
