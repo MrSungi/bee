@@ -1,14 +1,28 @@
 import React from 'react';
+import {makeStyles} from "@material-ui/core/styles";
 import PageLayout from "../../components/PageLayout/PageLayout";
 import Product from '../../components/Product/Product';
 import data from '../../static/data';
 
-export default function Items() {
+const useStyles = makeStyles({
+    root: {
+        display:'flex',
+        flexFlow: 'wrap'
+    },
 
+});
+
+
+export default function Items() {
+    const classes = useStyles();
 
     return(
             <PageLayout>
-                <Product product={data.products[1]}/>
+                <div className={classes.root}>
+                {data.products.map(product=>(
+                    <Product product={product} />
+                ))}
+                </div>
             </PageLayout>
     );
 

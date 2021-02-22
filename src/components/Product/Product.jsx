@@ -1,22 +1,21 @@
 import React, {useEffect, useState} from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Collapse from '@material-ui/core/Collapse';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
+import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import { yellow } from '@material-ui/core/colors';
 
 const useStyles = makeStyles({
     root: {
-        maxWidth: 300,
+        width: 300,
         background: 'rgba(0,0,0,0.5)',
         margin: '20px',
-        transition: "transform 0.15s ease-in-out",
     },
     media: {
         height: 250,
@@ -24,7 +23,7 @@ const useStyles = makeStyles({
     title:{
       fontFamily: 'Nunito',
         fontWeight: 'bold',
-        fontSize:'2rem',
+        fontSize:'1.5rem',
         color: 'black'
     },
     description:{
@@ -38,16 +37,34 @@ const useStyles = makeStyles({
     price:{
         fontFamily: 'Nunito',
         fontSize:'1.5rem',
-        color:'black'
+        color:'black',
+        textAlign:'end',
     },
     formControl: {
         margin: '1',
         minWidth: 120,
+        left: 150,
       },
     selectEmpty: {
         marginTop: '2',
       },
+    button:{
+        display:"flex",
+        marginTop: '10px',
+        left: 80
+    }
 });
+
+const ColorButton = withStyles((theme) => ({
+    root: {
+        color: theme.palette.getContrastText(yellow[500]),
+        backgroundColor: yellow[500],
+        '&:hover': {
+            backgroundColor: yellow[700],
+        },
+    },
+}))(Button);
+
 
 export default function Product({product}) {
     const classes = useStyles();
@@ -59,16 +76,16 @@ export default function Product({product}) {
         raised:false,
         shadow:1,
     });
-    const [age, setAge] = React.useState('');
+    const [size, setSize] = React.useState('');
 
     const handleChange = (event) => {
-        setAge(event.target.value);
+        setSize(event.target.value);
     };
 
 
 
     return (
-        <Collapse in={checked}  {...(checked ? { timeout: 1000 } : {})} collapsedHeight={50}>
+
         <Card
             className={classes.root}
             classes={{root: state.raised ? classes.cardHovered : ""}}
@@ -100,32 +117,28 @@ export default function Product({product}) {
                     </Typography>
 
                     <FormControl variant="outlined" className={classes.formControl}>
-                        <InputLabel id="demo-simple-select-outlined-label">Age</InputLabel>
+                        <InputLabel >Dydis</InputLabel>
                         <Select
-                        labelId="demo-simple-select-outlined-label"
-                        id="demo-simple-select-outlined"
-                        value={age}
+                        value={size}
                         onChange={handleChange}
-                        label="Age"
+                        label="Size"
                         >
                         {product.size.map(sizes=>(
-                            <MenuItem value="" key={sizes}>
+                            <MenuItem value={sizes} key={sizes}>
                                 <em>{sizes}</em>
                             </MenuItem>
                         ))}
                         </Select>
                     </FormControl>
 
-                    <Typography
-                        variant="body2"
-                        color="textSecondary"
-                        component="p"
-                        className={classes.description}
+                    <ColorButton
+                        variant='contained'
+                        color='primary'
+                        className={classes.button}
                     >
-                        {product.description}
-                    </Typography>
+                    Į krėpšelį
+                    </ColorButton>
                 </CardContent>
         </Card>
-        </Collapse>
     );
 }
