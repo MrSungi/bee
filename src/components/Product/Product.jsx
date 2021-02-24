@@ -136,7 +136,7 @@ export default function Product({product}) {
                         color='primary'
                         className={classes.button}
                     >
-                    Į krėpšelį
+                    Į krepšelį
                     </ColorButton>
                 </CardContent>
         </Card>
