@@ -1,6 +1,7 @@
 import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
 import { connect } from 'react-redux';
+import CartItem from "../CartItem/CartItem";
 
 
 
@@ -18,13 +19,11 @@ const Cart = ({ cart }) => {
     return (
         <div className={classes.root}>
             <h1 className={classes.title} > Krepšelis </h1>
-            <ul>
+            <div>
                 {cart.map(item => (
-                    <li>
-                        {item.name}
-                    </li>
+                    <CartItem key={item.id} item={item}/>
                 ))}
-            </ul>
+            </div>
         </div>
     );
 };
