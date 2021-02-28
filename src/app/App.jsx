@@ -1,7 +1,7 @@
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import React from 'react';
 import Homepage from "../pages/Homepage";
-import Items from "../pages/Items";
+import Items from "../pages/Products";
 import Contacts from "../pages/Contacts";
 import Apiary from "../pages/Apiary";
 import Login from "../pages/Login";

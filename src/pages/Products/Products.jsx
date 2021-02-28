@@ -1,17 +1,12 @@
 import React from 'react';
 import {makeStyles} from "@material-ui/core/styles";
 import PageLayout from "../../components/PageLayout/PageLayout";
-import Product from '../../components/Product/Product';
-import data from '../../static/data';
+import ProductsList from '../../components/Products/ProductsList';
 import Cart from "../../components/Cart/Cart";
 
 const useStyles = makeStyles({
     root: {
         display:'flex',
-    },
-    items: {
-        display:'flex',
-        flexFlow: 'wrap'
     },
     cart: {
         backgroundColor:"white",
@@ -23,17 +18,13 @@ const useStyles = makeStyles({
 });
 
 
-export default function Items() {
+export default function Products() {
     const classes = useStyles();
 
     return(
             <PageLayout>
                 <div className={classes.root}>
-                    <div className={classes.items}>
-                        {data.products.map(product=>(
-                            <Product product={product} />
-                        ))}
-                    </div>
+                    <ProductsList />
                     <div className={classes.cart} >
                         <Cart />
                     </div>

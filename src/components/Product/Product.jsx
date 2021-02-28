@@ -1,59 +1,19 @@
 import React, {useEffect, useState} from 'react';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
+import * as styles from './styles';
+import { connect } from 'react-redux';
+import { addToCart } from '../../redux/Shopping/shoppingActions'
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import { yellow } from '@material-ui/core/colors';
+import {withStyles} from "@material-ui/core/styles";
+import {yellow} from "@material-ui/core/colors";
+import Button from "@material-ui/core/Button";
 
-const useStyles = makeStyles({
-    root: {
-        width: 300,
-        background: 'rgba(0,0,0,0.5)',
-        margin: '20px',
-    },
-    media: {
-        height: 250,
-    },
-    title:{
-      fontFamily: 'Nunito',
-        fontWeight: 'bold',
-        fontSize:'1.5rem',
-        color: 'black'
-    },
-    description:{
-        fontFamily: 'Nunito',
-        fontSize:'1.1rem',
-        color:'black'
-    },
-    cardHovered: {
-        transform: "scale3d(1.05, 1.05, 1)"
-    },
-    price:{
-        fontFamily: 'Nunito',
-        fontSize:'1.5rem',
-        color:'black',
-        textAlign:'end',
-    },
-    formControl: {
-        margin: '1',
-        minWidth: 120,
-        left: 150,
-      },
-    selectEmpty: {
-        marginTop: '2',
-      },
-    button:{
-        display:"flex",
-        marginTop: '10px',
-        left: 80
-    }
-});
 
 const ColorButton = withStyles((theme) => ({
     root: {
@@ -65,9 +25,8 @@ const ColorButton = withStyles((theme) => ({
     },
 }))(Button);
 
-
-export default function Product({product}) {
-    const classes = useStyles();
+const Product = ({ productData, addToCart }) => {
+    const classes = styles.useStyles();
     const [checked, setChecked] = useState(false);
     useEffect(() => {
         setChecked(true);
@@ -83,7 +42,6 @@ export default function Product({product}) {
     };
 
 
-
     return (
 
         <Card
@@ -94,8 +52,8 @@ export default function Product({product}) {
             raised={state.raised} zdepth={state.shadow}>
                 <CardMedia
                     className={classes.media}
-                    image={product.image}
-                    title="Contemplative Reptile"
+                    image={productData.image}
+                    title={productData.title}
                 />
                 <CardContent>
                     <Typography
@@ -104,7 +62,7 @@ export default function Product({product}) {
                         component="h1"
                         className={classes.title}
                     >
-                        {product.name}
+                        {productData.name}
                     </Typography>
                     
                     <Typography
@@ -113,7 +71,7 @@ export default function Product({product}) {
                         component="h1"
                         className={classes.price}
                     >
-                        {product.price}
+                        {productData.price}
                     </Typography>
 
                     <FormControl variant="outlined" className={classes.formControl}>
@@ -123,7 +81,7 @@ export default function Product({product}) {
                         onChange={handleChange}
                         label="Size"
                         >
-                        {product.size.map(sizes=>(
+                        {productData.size.map(sizes=>(
                             <MenuItem value={sizes} key={sizes}>
                                 <em>{sizes}</em>
                             </MenuItem>
@@ -132,6 +90,7 @@ export default function Product({product}) {
                     </FormControl>
 
                     <ColorButton
+                        onClick={() => addToCart(productData.id)}
                         variant='contained'
                         color='primary'
                         className={classes.button}
@@ -141,4 +100,12 @@ export default function Product({product}) {
                 </CardContent>
         </Card>
     );
-}
+};
+
+    const mapDispatchToProps = (dispatch) => {
+        return {
+            addToCart: (id) => dispatch(addToCart(id)),
+        };
+    };
+
+    export default connect(null, mapDispatchToProps)(Product);

@@ -56,7 +56,7 @@ export default function ImageCard({card}) {
                 <CardMedia
                     className={classes.media}
                     image={card.image}
-                    title="Contemplative Reptile"
+                    title={card.title}
                 />
                 <CardContent>
                     <Typography

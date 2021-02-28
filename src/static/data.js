@@ -10,7 +10,7 @@ import Wax from '../assets/products/wax.png';
 const data = {
     products:[
         {
-            _id: '1',
+            id: '1',
             name: 'Bičių duonelė',
             image: Beebread,
             size: ['S', 'M', 'L'],
@@ -18,7 +18,7 @@ const data = {
             description: 'Sveika bičių duonelė',
         },
         {
-            _id: '2',
+            id: '2',
             name: 'Bičių vaško žvakė',
             image: Candle,
             size: ['S', 'M', 'L'],
@@ -26,7 +26,7 @@ const data = {
             description: 'Graži žvakė',
         },
         {
-            _id: '3',
+            id: '3',
             name: 'Dovanėlė',
             image: Gift,
             size: ['S', 'M', 'L'],
@@ -34,7 +34,7 @@ const data = {
             description: 'Graži dovanėlė',
         },
         {
-            _id: '4',
+            id: '4',
             name: 'Medus',
             image: Honey,
             size: ['S', 'M', 'L'],
@@ -42,7 +42,7 @@ const data = {
             description: 'Sveikas medus',
         },
         {
-            _id: '5',
+            id: '5',
             name: 'Korys',
             image: Koriukas,
             size: ['S', 'M', 'L'],
@@ -50,7 +50,7 @@ const data = {
             description: 'Gražus korys',
         },
         {
-            _id: '6',
+            id: '6',
             name: 'Midus',
             image: Midutis,
             size: ['S', 'M', 'L'],
@@ -58,7 +58,7 @@ const data = {
             description: 'Skanus midus',
         },
         {
-            _id: '7',
+            id: '7',
             name: 'Pikis',
             image: Pikiukas,
             size: ['S', 'M', 'L'],
@@ -66,7 +66,7 @@ const data = {
             description: 'Sveikas pikis',
         },
         {
-            _id: '8',
+            id: '8',
             name: 'Vaškas',
             image: Wax,
             size: ['S', 'M', 'L'],
