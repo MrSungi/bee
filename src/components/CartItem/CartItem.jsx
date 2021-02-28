@@ -9,10 +9,15 @@ import { removeFromCart } from "../../redux/Shopping/shoppingActions";
 const useStyles = makeStyles(() => ({
     root: {
         display: 'flex',
+        margin: '1vw',
         justifyContent: 'space-between',
-        margin: '2vw'
-    },
+        borderBottomStyle: 'solid',
+        borderWidth: '1px'
 
+    },
+    item:{
+        marginTop: '10px',
+    }
 }));
 
 const CartItem = ({ item, removeFromCart }) => {
@@ -22,14 +27,16 @@ const CartItem = ({ item, removeFromCart }) => {
         <div className={classes.root}>
                 <Typography variant='subtitle1'
                             component='h2'
+                            className={classes.item}
                 >
                     {item.name} x {item.qty}
                 </Typography>
-        <Typography variant='subtitle1'
-                    component='h2'
-        >
-            {item.price * item.qty} €
-        </Typography>
+                <Typography variant='subtitle1'
+                            component='h2'
+                            className={classes.item}
+                >
+                    {item.price * item.qty} €
+                </Typography>
             <IconButton
                 onClick={() => removeFromCart(item.id)}
             >
