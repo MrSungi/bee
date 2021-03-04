@@ -9,7 +9,7 @@ const useStyles = makeStyles({
         display:'flex',
     },
     cart: {
-        backgroundColor:"white",
+        backgroundColor:"darkgoldenrod",
         minWidth: '20vw'
 
 

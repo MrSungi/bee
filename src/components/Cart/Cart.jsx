@@ -2,6 +2,7 @@ import React, { useState, useEffect} from "react";
 import {makeStyles} from "@material-ui/core/styles";
 import { connect } from 'react-redux';
 import CartItem from "../CartItem/CartItem";
+import ColorButton from "../ColorButton/ColorButton";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -14,9 +15,14 @@ const useStyles = makeStyles(() => ({
         margin: '1vw',
     },
     summary: {
+        display:'flex',
         textAlign:'right',
         margin: '2vw',
         fontSize:'1rem',
+        justifyContent:'space-between'
+    },
+    total: {
+        marginTop:'0.5vw'
     }
 }));
 
@@ -50,7 +56,14 @@ const Cart = ({ cart }) => {
                         ))}
                     </div>
                     <div className={classes.summary}>
-                        <span>Iš viso: ${totalPrice}</span>
+                        <ColorButton
+                            onClick={() => alert('Implement this!')}
+                            variant='contained'
+                            color='primary'
+                        >
+                            Apsipirkti
+                        </ColorButton>
+                        <span className={classes.total}>Iš viso: ${totalPrice}</span>
                     </div>
                 </div>
             )}

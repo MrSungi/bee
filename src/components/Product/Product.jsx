@@ -10,20 +10,10 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import {withStyles} from "@material-ui/core/styles";
-import {yellow} from "@material-ui/core/colors";
-import Button from "@material-ui/core/Button";
+import ColorButton from "../ColorButton/ColorButton";
 
 
-const ColorButton = withStyles((theme) => ({
-    root: {
-        color: theme.palette.getContrastText(yellow[500]),
-        backgroundColor: yellow[500],
-        '&:hover': {
-            backgroundColor: yellow[700],
-        },
-    },
-}))(Button);
+
 
 const Product = ({ productData, addToCart }) => {
     const classes = styles.useStyles();
